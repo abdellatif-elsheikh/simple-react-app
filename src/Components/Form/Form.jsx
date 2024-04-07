@@ -2,29 +2,43 @@ import { Card } from "../UI/Card/Card";
 import { FormControl } from "../UI/FormControl/FormControl";
 import { Container } from "../UI/Container/Container";
 import { Button } from "../UI/Button/Button";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export const Form = (props) => {
 
-    const [inputsValue, setInputsValue] = useState({
-        name: '',
-        age: ''
-    })
+  const nameInputRef = useRef()
+  const ageInputRef = useRef()
 
-    const collectDataHandler = (e) => {
-        const input = e.target.name
-        setInputsValue((prev) => {
-            return {
-                ...prev,
-                [input]: e.target.value
-            }
+    // const [inputsValue, setInputsValue] = useState({
+    //     name: '',
+    //     age: ''
+    // })
 
-        })
-    }
+    // const collectDataHandler = (e) => {
+    //     const input = e.target.name
+    //     setInputsValue((prev) => {
+    //         return {
+    //             ...prev,
+    //             [input]: e.target.value
+    //         }
+    //     })
+    // }
 
   const formDataHandler = (e) => {
     e.preventDefault();
-    props.onSaveData(inputsValue)
+  
+    const userData = {
+      name: nameInputRef.current.value,
+      age: ageInputRef.current.value,
+    }
+    props.onSaveData(userData)
+    nameInputRef.current.value = ''
+    ageInputRef.current.value = ''
+
+    // setInputsValue({
+    //   name: '',
+    //   age: ''
+    // })
   };
 
   return (
@@ -37,8 +51,10 @@ export const Form = (props) => {
             type="text" 
             id="username" 
             name="name" 
-            value={inputsValue.username}
-            onChange={collectDataHandler}/>
+            // value=''
+            // onChange={collectDataHandler}
+            ref={nameInputRef}
+            />
           </FormControl>
 
           <FormControl>
@@ -49,8 +65,10 @@ export const Form = (props) => {
             name="age" 
             min="6" 
             max="80"  
-            value={inputsValue.userAge} 
-            onChange={collectDataHandler}/>
+            // value=''
+            // onChange={collectDataHandler}
+            ref={ageInputRef}
+            />
           </FormControl>
           <Button type="submit">Submit</Button>
         </form>

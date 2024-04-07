@@ -28,7 +28,6 @@ function App() {
       return
     }
   }
- 
 
   const closeErrorPage = (bool) => {
     setIsError(bool)
@@ -44,7 +43,6 @@ function App() {
     message={errorMessage}
     onCloseErrorPage={closeErrorPage}
     />}
-     simple
     </div>
   );
 }

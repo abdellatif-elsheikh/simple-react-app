@@ -1,0 +1,22 @@
+.btn {
+    padding: 10px 22px;
+    border-radius:  5px;
+    font-size:  16px;
+    margin: 8px;
+    cursor:  pointer;
+    border:  none;
+    outline:  none;
+    background-color:  #0083af;
+    color: #fff;
+    font-family: "Sniglet", system-ui;
+    transition: background .25s, transform .25s;
+    
+}
+
+.btn:hover {
+    background-color: #006c91 ;
+}
+
+.btn:active {
+    transform: scale(1.04);
+}

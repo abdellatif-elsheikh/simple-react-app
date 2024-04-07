@@ -1,0 +1,52 @@
+.wrapper {
+    position: fixed;
+    top:  0;
+    left: 0;
+    height: 100vh;
+    width:  100vw;
+    display:  flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+}
+
+.container {
+    z-index: 99;
+} 
+
+.overlay {
+    position: fixed;
+    top:  0;
+    left: 0;
+    height: 100vh;
+    width:  100vw;
+    background-color: rgba(8, 8, 8, 0.548);
+}
+
+.wrapper h2 {
+    color:  #fff;
+    background-color: #A73952;
+    margin: 0;
+    padding: 1rem
+}
+
+.error-message {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.error-message p {
+    max-width: 90%;
+    margin-bottom: 40px;
+}
+
+.error-message button {
+    align-self: flex-end;
+    background-color: #A73952;
+}
+
+.error-message button:hover {
+    background-color: #83273c;
+}
